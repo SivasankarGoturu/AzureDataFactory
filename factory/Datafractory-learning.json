@@ -1,0 +1,9 @@
+{
+	"name": "Datafractory-learning",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "25b9811f-1be3-45cb-bd6c-227deaf57e5e",
+		"tenantId": "e272493d-2960-477d-b9b1-c0184d5b24c1"
+	}
+}
