@@ -276,13 +276,7 @@
 						"referenceName": "ds_adls_customers",
 						"type": "DatasetReference"
 					},
-					"fieldList": [
-						"itemName",
-						"itemType",
-						"childItems",
-						"lastModified",
-						"exists"
-					],
+					"fieldList": [],
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
 						"recursive": true,
