@@ -278,7 +278,10 @@
 					},
 					"fieldList": [
 						"itemName",
-						"itemType"
+						"itemType",
+						"childItems",
+						"lastModified",
+						"exists"
 					],
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
@@ -304,7 +307,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"expression": {
-						"value": "@equals(activity('')",
+						"value": "@equals(activity('Check metadata').output.)",
 						"type": "Expression"
 					}
 				}
