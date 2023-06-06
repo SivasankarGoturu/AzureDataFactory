@@ -1,0 +1,9 @@
+{
+	"name": "learndfe",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "0394160e-f70d-4590-aa91-80377fe47f7d",
+		"tenantId": "e272493d-2960-477d-b9b1-c0184d5b24c1"
+	}
+}
