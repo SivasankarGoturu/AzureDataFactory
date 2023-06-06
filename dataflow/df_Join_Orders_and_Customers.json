@@ -19,10 +19,24 @@
 					"name": "OrdersStream"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "ds_adls_orders_customers",
+						"type": "DatasetReference"
+					},
+					"name": "OrdersCustomers"
+				}
+			],
 			"transformations": [
 				{
 					"name": "OrdersInnerJoinCustomer"
+				},
+				{
+					"name": "dropCols"
+				},
+				{
+					"name": "aggregate1"
 				}
 			],
 			"scriptLines": [
@@ -81,7 +95,57 @@
 				"     joinType:'inner',",
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
-				"     broadcast: 'auto')~> OrdersInnerJoinCustomer"
+				"     broadcast: 'auto')~> OrdersInnerJoinCustomer",
+				"OrdersInnerJoinCustomer select(mapColumn(",
+				"          CustomerID = CustomersStream@CustomerID,",
+				"          NameStyle,",
+				"          Title,",
+				"          FirstName,",
+				"          MiddleName,",
+				"          LastName,",
+				"          Suffix,",
+				"          CompanyName,",
+				"          SalesPerson,",
+				"          EmailAddress,",
+				"          Phone,",
+				"          PasswordHash,",
+				"          PasswordSalt,",
+				"          rowguid = CustomersStream@rowguid,",
+				"          ModifiedDate = CustomersStream@ModifiedDate,",
+				"          SalesOrderID,",
+				"          RevisionNumber,",
+				"          OrderDate,",
+				"          DueDate,",
+				"          ShipDate,",
+				"          Status,",
+				"          OnlineOrderFlag,",
+				"          SalesOrderNumber,",
+				"          PurchaseOrderNumber,",
+				"          AccountNumber,",
+				"          CustomerID = OrdersStream@CustomerID,",
+				"          BillToAddressID,",
+				"          ShipMethod,",
+				"          CreditCardApprovalCode,",
+				"          SubTotal,",
+				"          TaxAmt,",
+				"          Freight,",
+				"          TotalDue,",
+				"          Comment,",
+				"          rowguid = OrdersStream@rowguid,",
+				"          ModifiedDate = OrdersStream@ModifiedDate",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> dropCols",
+				"dropCols aggregate(groupBy(CustomerID,",
+				"          OrderDate),",
+				"     SubTotal = sum(SubTotal)) ~> aggregate1",
+				"aggregate1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> OrdersCustomers"
 			]
 		}
 	}
