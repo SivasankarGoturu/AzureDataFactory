@@ -248,7 +248,8 @@
 						"type": "DatasetReference"
 					},
 					"timeout": "0.00:00:30",
-					"sleep": 5
+					"sleep": 5,
+					"childItems": true
 				}
 			},
 			{
@@ -278,6 +279,7 @@
 					"fieldList": [],
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
+						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
