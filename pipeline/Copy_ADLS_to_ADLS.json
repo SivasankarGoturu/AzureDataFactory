@@ -10,11 +10,12 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "ds_sql_db_customers",
+						"referenceName": "ds_customersProcessed_adls",
 						"type": "DatasetReference"
 					},
 					"timeout": "0.00:00:30",
-					"sleep": 5
+					"sleep": 5,
+					"childItems": true
 				}
 			},
 			{
@@ -38,10 +39,17 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "ds_sql_db_customers",
+						"referenceName": "ds_customersProcessed_adls",
 						"type": "DatasetReference"
 					},
-					"fieldList": []
+					"fieldList": [],
+					"storeSettings": {
+						"type": "AzureBlobFSReadSettings",
+						"enablePartitionDiscovery": false
+					},
+					"formatSettings": {
+						"type": "DelimitedTextReadSettings"
+					}
 				}
 			},
 			{
