@@ -288,23 +288,10 @@
 				}
 			},
 			{
-				"name": "Check columns",
+				"name": "If Condition1",
 				"type": "IfCondition",
-				"dependsOn": [
-					{
-						"activity": "Check metadata",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"userProperties": [],
-				"typeProperties": {
-					"expression": {
-						"value": "@equals(activity('Check metadata').output.)",
-						"type": "Expression"
-					}
-				}
+				"dependsOn": [],
+				"userProperties": []
 			}
 		],
 		"annotations": []
