@@ -10,12 +10,11 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "ds_adls_customers",
+						"referenceName": "ds_sql_db_customers",
 						"type": "DatasetReference"
 					},
 					"timeout": "0.00:00:30",
-					"sleep": 5,
-					"childItems": true
+					"sleep": 5
 				}
 			},
 			{
