@@ -1,0 +1,25 @@
+{
+	"name": "AzureSqlDatabaseSinkDataset",
+	"properties": {
+		"description": "Connection to your destination data store.",
+		"linkedServiceName": {
+			"referenceName": "ls_sql_db_retaildb",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"sinkTableName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": {
+				"value": "@dataset().sinkTableName",
+				"type": "Expression"
+			}
+		}
+	}
+}
