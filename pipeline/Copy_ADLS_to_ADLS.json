@@ -291,9 +291,16 @@
 				}
 			},
 			{
-				"name": "If Condition1",
+				"name": "Check columns",
 				"type": "IfCondition",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "Check metadata",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"userProperties": []
 			}
 		],
