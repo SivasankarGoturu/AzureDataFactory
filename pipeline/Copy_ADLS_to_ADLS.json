@@ -301,7 +301,13 @@
 						]
 					}
 				],
-				"userProperties": []
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@equals(activity('')",
+						"type": "Expression"
+					}
+				}
 			}
 		],
 		"annotations": []
