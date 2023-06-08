@@ -1,0 +1,9 @@
+{
+	"name": "adf-rearn-2s",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "ac004770-5114-455a-8999-d72b447d232a",
+		"tenantId": "e272493d-2960-477d-b9b1-c0184d5b24c1"
+	}
+}
