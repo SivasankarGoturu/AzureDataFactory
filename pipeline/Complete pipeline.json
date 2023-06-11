@@ -14,6 +14,9 @@
 					"secureInput": false
 				},
 				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Repos/sreekanthkoduru@outlook.com/AzureDataBricks/read-load"
+				},
 				"linkedServiceName": {
 					"referenceName": "AzureDatabricks",
 					"type": "LinkedServiceReference"
